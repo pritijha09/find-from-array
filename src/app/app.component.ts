@@ -12,6 +12,7 @@ export class AppComponent {
   label2: string;
   label3: string;
   label4: string;
+  completeUUID: string = "";
 
   add() {
     if (this.list.some(ele => ele.uuid === this.uuid)) {
@@ -29,5 +30,20 @@ export class AppComponent {
     }
 
     //if(this.list)
+  }
+
+  remove(index) {
+    this.list.splice(index, 1);
+  }
+
+  generate() {
+    this.list.forEach((ele, index) => {
+      if (index === 0) {
+        this.completeUUID += `${ele.uuid}`;
+      } else {
+        this.completeUUID += `-${ele.uuid}`;
+      }
+    });
+    alert(this.completeUUID);
   }
 }

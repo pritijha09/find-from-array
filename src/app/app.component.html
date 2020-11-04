@@ -11,10 +11,15 @@
 	<label>Label 3</label>
 	&nbsp;<input type="string" [(ngModel)] ="label3" /><br>
 	<label>label4</label>
-	&nbsp;<input type="string" [(ngModel)] ="label4" /><br>
-	<button (click)="add()">Add</button>
+	&nbsp;<input type="string" [(ngModel)] ="label4" /><br><br>
+	<button (click)="add()">Add</button>&nbsp; &nbsp;
+	<button (click)="generate()">Generate</button>
 </div>
 
-<div *ngFor="let ele of list">
-	UUID ===== {{ele.uuid}}
+<div *ngFor="let ele of list; let index=index">
+	UUID ===== {{ele.uuid}} &nbsp; &nbsp;<span><button (click)="remove(index)">Delete</button></span>
+</div>
+<br><br>
+<div>
+	Generated UUID ========= {{completeUUID}}
 </div>
